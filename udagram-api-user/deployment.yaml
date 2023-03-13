@@ -2,26 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: udagram-api-user
-  name: udagram-api-user
+    service: backend-user
+  name: backend-user
 spec:
   selector:
     matchLabels:
-      service: udagram-api-user
+      service: backend-user
   replicas: 2
   template:
     metadata:
       labels:
-        service: udagram-api-user
+        service: backend-user
     spec:
       containers:
-        - image: mostafamgomaa/udagram-api-user:latest
-          name: udagram-api-user
+        - image: mostafamgomaa/udagram-api-user:v3
+          name: backend-user
           envFrom:
             - configMapRef:
-                name: envconfigmap
+                name: env-configmap
             - secretRef:
-                name: envsecret
+                name: env-secret
           imagePullPolicy: Always
           resources:
             requests:

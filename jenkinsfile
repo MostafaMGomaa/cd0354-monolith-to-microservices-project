@@ -11,10 +11,10 @@ pipeline{
 		}
 		stage('Build') {
 			steps {
-				sh 'docker build -t mostafamgomaa/reverseproxy:latest ./udagram-reverseproxy'
-				sh 'docker build -t mostafamgomaa/udagram-api-user:latest ./udagram-api-user'
-				sh 'docker build -t mostafamgomaa/udagram-api-feed:latest ./udagram-api-feed'
-				sh 'docker build -t mostafamgomaa/udagram-frontend:latest ./udagram-frontend'
+				sh 'docker build -t mostafamgomaa/reverseproxy:v3 ./udagram-reverseproxy'
+				sh 'docker build -t mostafamgomaa/udagram-api-user:v3 ./udagram-api-user'
+				sh 'docker build -t mostafamgomaa/udagram-api-feed:v3 ./udagram-api-feed'
+				sh 'docker build -t mostafamgomaa/udagram-frontend:v3 ./udagram-frontend'
 			}
 		}
 		stage('Login') {
@@ -25,10 +25,10 @@ pipeline{
 		stage('Push') {
 			steps {
 
-				sh 'docker push mostafamgomaa/reverseproxy:latest'
-				sh 'docker push mostafamgomaa/udagram-api-user:latest'
-				sh 'docker push mostafamgomaa/udagram-api-feed:latest'
-				sh 'docker push mostafamgomaa/udagram-frontend:latest'
+				sh 'docker push mostafamgomaa/reverseproxy:v3'
+				sh 'docker push mostafamgomaa/udagram-api-user:v3'
+				sh 'docker push mostafamgomaa/udagram-api-feed:v3'
+				sh 'docker push mostafamgomaa/udagram-frontend:v3'
 			}
 		}
 	}
